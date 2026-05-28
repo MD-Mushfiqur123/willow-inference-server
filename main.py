@@ -798,7 +798,7 @@ def do_sv(audio_file, threshold=sv_threshold):
     logger.debug(f"SV: Got request with threshold {threshold}")
 
     if sv_model is None:
-        logger.warn("SV: Speaker verification support disabled")
+        logger.warning("SV: Speaker verification support disabled")
         return
 
     time_initial_start = datetime.datetime.now()
@@ -909,7 +909,7 @@ async def rtc_offer(request, model, beam_size, task, detect_language):
         def on_message(message):
             logger.debug("RTC DC: message: " + message)
             if not isinstance(message, str):
-                logger.warn("RTC DC:  got non string message", message)
+                logger.warning("RTC DC:  got non string message", message)
                 return
             try:
                 message = json.loads(message)
